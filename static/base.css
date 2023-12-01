@@ -1,0 +1,7 @@
+/*Place to define global css variables*/
+:root {
+	--max-width: 1000px;
+	--christmas-red: #b31008;
+	--christmas-gold: #f1d302;
+	--christmas-green: #144c2a;
+}
