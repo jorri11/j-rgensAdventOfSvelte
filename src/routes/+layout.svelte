@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div>
+<div class="outer">
 	<header>
 		<div class="wrapper">
 			<h1>Jørgens Advent of svelte</h1>
@@ -29,6 +29,7 @@
 		border-bottom: #ffffff 2px solid; /* White, for border */
 		position: sticky;
 		top: 0;
+		z-index: 2;
 	}
 	.wrapper {
 		display: flex;
@@ -38,8 +39,10 @@
 		margin: 0 auto;
 	}
 	main {
+		position: relative;
 		max-width: var(--max-width);
 		margin: 0 auto;
+		z-index: 1;
 	}
 	nav a {
 		color: var(--christmas-gold); /* Christmas Gold */
