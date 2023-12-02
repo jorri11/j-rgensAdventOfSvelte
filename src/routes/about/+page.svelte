@@ -17,9 +17,12 @@
 				>.
 			</p>
 			<p>
-				This year, for the Advent of Svelte, I've wrapped my code in the theme of <span
-					>Gaudy Christmas 🎄</span
-				>, promising a holiday spectacle that's as dazzling as the Northern Lights.
+				This year, for the <a
+					href="https://advent.sveltesociety.dev/#challenges"
+					target="_blank"
+					rel="noopener noreferrer">Advent of Svelte challenge</a
+				>, I've wrapped my code in the theme of <span>Gaudy Christmas 🎄</span>, promising a holiday
+				spectacle that's as dazzling as the Northern Lights.
 			</p>
 			<p>
 				So, brace yourself for a sleigh ride through my festive creations and the mesmerizing code
