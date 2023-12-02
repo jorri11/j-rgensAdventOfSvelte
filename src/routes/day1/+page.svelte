@@ -47,7 +47,7 @@
 		save(list);
 	}
 
-	let filterOpen = true;
+	let filterOpen = false;
 	let filterNaughty = true;
 	let filterNice = true;
 
