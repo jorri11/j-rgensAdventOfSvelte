@@ -1,7 +1,13 @@
 <script>
+	import { onNavigate } from '$app/navigation';
+
 	let dropdownOpen = false;
 
-	const days = [1];
+	const days = [1, 2];
+
+	onNavigate(() => {
+		dropdownOpen = false;
+	});
 </script>
 
 <div class="outer">
