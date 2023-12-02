@@ -4,4 +4,10 @@
 	--christmas-red: #b31008;
 	--christmas-gold: #f1d302;
 	--christmas-green: #144c2a;
+	--christmas-purple: #5c0e6d;
+}
+
+::selection {
+	background: var(--christmas-purple);
+	color: var(--christmas-gold);
 }

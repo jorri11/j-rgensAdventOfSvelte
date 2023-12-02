@@ -27,6 +27,8 @@
 	header {
 		background-color: var(--christmas-red); /* Christmas Red */
 		border-bottom: #ffffff 2px solid; /* White, for border */
+		position: sticky;
+		top: 0;
 	}
 	.wrapper {
 		display: flex;
