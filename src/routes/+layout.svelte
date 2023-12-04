@@ -84,6 +84,7 @@
 		justify-content: space-between;
 		max-width: var(--max-width);
 		margin: 0 auto;
+		padding: 0 1rem;
 	}
 	main {
 		position: relative;
