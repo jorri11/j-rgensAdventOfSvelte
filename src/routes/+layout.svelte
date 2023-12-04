@@ -3,7 +3,7 @@
 
 	let dropdownOpen = false;
 
-	const days = [1, 2, 3];
+	const days = [1, 2, 3, 4];
 
 	onNavigate(() => {
 		dropdownOpen = false;

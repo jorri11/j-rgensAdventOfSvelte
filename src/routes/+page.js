@@ -1,5 +1,5 @@
 import { redirect } from "@sveltejs/kit";
 
 export async function load() {
-	throw redirect(307,"/day/1");	
+	throw redirect(307,"/day/4");	
 }
