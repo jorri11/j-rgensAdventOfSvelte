@@ -90,6 +90,7 @@
 		}
 		& .the-actual-assignment {
 			grid-column: 1 / -1;
+			text-align: center;
 		}
 	}
 	.button-wrapper {
