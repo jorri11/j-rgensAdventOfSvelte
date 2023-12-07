@@ -27,7 +27,6 @@
 		.catch((e) => {
 			//do nothing
 		});
-	$: console.log(recs);
 	async function getReccomendations(bpm, lastBpm, lastGetTime, now) {
 		if (!shouldGetReccomendations(lastBpm, bpm, lastGetTime, now)) {
 			throw new Error('Not time to get reccomendations yet');
@@ -37,7 +36,6 @@
 
 	function shouldGetReccomendations(lastBpm, newBpm, lastGetTime, now) {
 		if (bpm < 50) {
-			console.log('bpm too low');
 			return false;
 		}
 		return (
@@ -63,7 +61,7 @@
 	}
 </script>
 
-<svelte:window on:keydown={onKeyPress} />
+<svelte:window on:keyup={onKeyPress} />
 <div class="page-wrapper">
 	<h1>Misteltoe metronome</h1>
 	<section class="the-actual-assignment">
