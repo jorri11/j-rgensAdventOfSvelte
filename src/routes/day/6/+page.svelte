@@ -1,6 +1,7 @@
 <script>
 	let beats = [];
 	let numberOfBeats;
+	let recs = [];
 
 	$: accumulatedDifferenceBetweenBeats =
 		beats.length >= 2
@@ -14,6 +15,36 @@
 	$: avreageBeats = beats.length >= 2 ? accumulatedDifferenceBetweenBeats / (beats.length - 1) : 0;
 
 	$: bpm = beats.length >= 2 ? 60000 / avreageBeats : 0;
+
+	let lastBpm = 0;
+	let lastGetTime = 0;
+	$: getReccomendations(bpm, lastBpm, lastGetTime, Date.now())
+		.then((res) => {
+			recs = res;
+			lastBpm = bpm;
+			lastGetTime = Date.now();
+		})
+		.catch((e) => {
+			//do nothing
+		});
+	$: console.log(recs);
+	async function getReccomendations(bpm, lastBpm, lastGetTime, now) {
+		if (!shouldGetReccomendations(lastBpm, bpm, lastGetTime, now)) {
+			throw new Error('Not time to get reccomendations yet');
+		}
+		return await fetch(`/api/day/6?bpm=${Math.round(bpm)}`).then((res) => res.json());
+	}
+
+	function shouldGetReccomendations(lastBpm, newBpm, lastGetTime, now) {
+		if (bpm < 50) {
+			console.log('bpm too low');
+			return false;
+		}
+		return (
+			(Math.abs(lastBpm - newBpm) > 10 && Math.abs(lastGetTime - now) > 1000 * 45) ||
+			Math.abs(lastGetTime - now) > 1000 * 60 * 2
+		);
+	}
 
 	function onBeat(e) {
 		if (beats.length == numberOfBeats) {
@@ -56,12 +87,50 @@
 			<button on:click={onBeat} class="big-purple-button">The Big Purple Button™</button>
 		</div>
 	</section>
-	<!--	<section>
+	<section>
 		<h2>Reccomendations</h2>
-	</section>-->
+		<ul role="list">
+			{#each recs?.tracks ?? [] as track}
+				<li>
+					<h3>{track.name} - {track.artists[0].name}</h3>
+					<a href={track.external_urls.spotify}>Listen on spotify</a>
+				</li>
+			{:else}
+				<li>
+					<h3>No reccomendations yet</h3>
+				</li>
+			{/each}
+		</ul>
+	</section>
 </div>
 
 <style>
+	ul {
+		margin: 0;
+		padding: 1rem;
+	}
+	li {
+		font-weight: bolder;
+		padding: 0.5rem;
+		display: grid;
+		grid-template-columns: 1fr auto;
+	}
+	/**Make each other li item a bit lighter green with a filter*/
+	li:nth-child(even) {
+		background-color: #fff;
+		color: var(--christmas-green);
+		& a {
+			color: var(--christmas-green);
+		}
+	}
+	li:nth-child(odd) {
+		background-color: var(--christmas-red);
+		color: var(--christmas-gold);
+		margin: 0 0.5rem;
+		& a {
+			color: var(--christmas-gold);
+		}
+	}
 	.increase {
 		background-color: var(--christmas-red);
 		color: var(--christmas-gold);
@@ -89,7 +158,6 @@
 			text-align: center;
 		}
 		& .the-actual-assignment {
-			grid-column: 1 / -1;
 			text-align: center;
 		}
 	}
