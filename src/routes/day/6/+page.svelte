@@ -63,7 +63,7 @@
 	}
 </script>
 
-<svelte:window on:keypress={onKeyPress} />
+<svelte:window on:keydown={onKeyPress} />
 <div class="page-wrapper">
 	<h1>Misteltoe metronome</h1>
 	<section class="the-actual-assignment">
