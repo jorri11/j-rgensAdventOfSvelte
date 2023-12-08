@@ -1,9 +1,9 @@
 <script>
 	import { onNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
 	import days from '$lib/days';
 
 	let dropdownOpen = false;
-
 	onNavigate(() => {
 		dropdownOpen = false;
 	});
