@@ -79,10 +79,10 @@
 </script>
 
 <h1>Santas card game</h1>
-<h2>Total moves: {totalComparisons}</h2>
 {#if bestComparisons}
 	<h2>Best moves: {bestComparisons}</h2>
 {/if}
+<p>Total moves: {totalComparisons}</p>
 <div class="grid">
 	{#each data.cards ?? [] as card (card.id)}
 		<Card
