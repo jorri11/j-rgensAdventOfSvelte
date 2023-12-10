@@ -14,6 +14,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 2</title>
+</svelte:head>
 <div class="page-wrapper">
 	<div>
 		<h1>Santas cookie counter</h1>

@@ -61,6 +61,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 6</title>
+</svelte:head>
 <svelte:window on:keyup={onKeyPress} />
 <div class="page-wrapper">
 	<h1>Misteltoe metronome</h1>

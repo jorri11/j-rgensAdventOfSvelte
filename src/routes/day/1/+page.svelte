@@ -58,6 +58,9 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 1</title>
+</svelte:head>
 <h1>Day 1 Naughty/Nice Tally</h1>
 <div class="filter-input">
 	<input type="search" name="search" id="search" bind:value={search} placeholder="Search" />

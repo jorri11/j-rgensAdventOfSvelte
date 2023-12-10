@@ -78,6 +78,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 8</title>
+</svelte:head>
 <h1>Santas card game</h1>
 {#if bestComparisons}
 	<h2>Best moves: {bestComparisons}</h2>

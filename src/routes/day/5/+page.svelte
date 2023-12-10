@@ -71,6 +71,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 5</title>
+</svelte:head>
 <div class="layout-wrapper">
 	<h1>Elf Productivity Dashboard</h1>
 

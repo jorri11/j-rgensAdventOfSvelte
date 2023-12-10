@@ -110,6 +110,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 4</title>
+</svelte:head>
 <div class="wrapper">
 	<h1>Santa’s Heart Rate Monitor (SHRM™)</h1>
 	<section>

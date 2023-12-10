@@ -15,6 +15,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 7</title>
+</svelte:head>
 <div class="page-wrapper">
 	<h1>Morse Mischief</h1>
 	<label for="in"> Whats your message to Sven? </label>

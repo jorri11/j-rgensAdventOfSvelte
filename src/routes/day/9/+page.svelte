@@ -31,6 +31,9 @@
 	let time = getTimeUntilCE();
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 9</title>
+</svelte:head>
 <div class="page-wrapper">
 	<h1>Santa's final countdown</h1>
 	<div class="realtime-wrapper">

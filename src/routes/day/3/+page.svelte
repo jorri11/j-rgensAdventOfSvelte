@@ -67,6 +67,9 @@
 	$: sleighWeight = packedPackages.reduce((acc, pack) => acc + pack.weight, 0);
 </script>
 
+<svelte:head>
+	<title>Advent of Svelte - Day 3</title>
+</svelte:head>
 <h1>Sleigh Load Balancer (SLB™)</h1>
 <div class="slb-wrapper">
 	<div class="package-wrapper">
