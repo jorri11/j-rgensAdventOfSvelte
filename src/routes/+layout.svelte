@@ -2,6 +2,7 @@
 	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import days from '$lib/days';
+	import { clickOutsideAction } from 'svelte-legos';
 
 	let dropdownOpen = false;
 	onNavigate(() => {
@@ -19,7 +20,13 @@
 						>Days {dropdownOpen ? 'v' : '^'}</button
 					>
 					{#if dropdownOpen}
-						<div class="dropdown">
+						<div
+							class="dropdown"
+							use:clickOutsideAction
+							on:clickoutside={() => {
+								dropdownOpen = false;
+							}}
+						>
 							{#each days as day}
 								<a href="/day/{day}" class="menu-item">Day {day}</a>
 							{/each}

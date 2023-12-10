@@ -26,6 +26,7 @@
 	"type": "module",
 	"dependencies": {
 		"@neoconfetti/svelte": "^1.0.0",
-		"highcharts": "^11.2.0"
+		"highcharts": "^11.2.0",
+		"svelte-legos": "^0.2.2"
 	}
 }
