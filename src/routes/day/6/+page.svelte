@@ -21,16 +21,16 @@
 	$: getReccomendations(bpm, lastBpm, lastGetTime, Date.now())
 		.then((res) => {
 			recs = res;
-			lastBpm = bpm;
-			lastGetTime = Date.now();
 		})
 		.catch((e) => {
 			//do nothing
 		});
-	async function getReccomendations(bpm, lastBpm, lastGetTime, now) {
-		if (!shouldGetReccomendations(lastBpm, bpm, lastGetTime, now)) {
+	async function getReccomendations(_bpm, _lastBpm, _lastGetTime, _now) {
+		if (!shouldGetReccomendations(_lastBpm, _bpm, _lastGetTime, _now)) {
 			throw new Error('Not time to get reccomendations yet');
 		}
+		lastBpm = _bpm;
+		lastGetTime = _now;
 		return await fetch(`/api/day/6?bpm=${Math.round(bpm)}`).then((res) => res.json());
 	}
 
@@ -38,10 +38,9 @@
 		if (bpm < 50) {
 			return false;
 		}
-		return (
-			(Math.abs(lastBpm - newBpm) > 10 && Math.abs(lastGetTime - now) > 1000 * 45) ||
-			Math.abs(lastGetTime - now) > 1000 * 60 * 2
-		);
+		const differenceBpm = Math.abs(lastBpm - newBpm);
+		const differenceTime = Math.abs(lastGetTime - now);
+		return (differenceBpm > 15 && differenceTime > 20 * 1000) || differenceTime > 60 * 1000;
 	}
 
 	function onBeat(e) {
